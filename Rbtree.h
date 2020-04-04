@@ -24,6 +24,7 @@ public:
 	Rbtree();
 	~Rbtree();
 	int height();
+	int findElement(char* str);
 void insert(char d[50]);
 	void printtree();
 	int size();

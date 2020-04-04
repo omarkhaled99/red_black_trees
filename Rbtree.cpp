@@ -17,6 +17,46 @@ int Rbtree::height(Rbtree_node* root) {
 	return (root == NULL) ? -1 :
 		1 + max(height(root->left), height(root->right));
 }
+int Rbtree::findElement (char* str) {
+	Rbtree_node* temp;
+	int res = 0;
+
+	temp = root;
+	while (temp) {
+		if ((res = strcmp(temp->word, str)) == 0) {
+
+			break;
+
+		}
+		if (res > 0) {
+			Rbtree_node* x = temp;
+			if (temp->left != NULL) {
+                  temp = temp->left;   
+
+			}if (temp->left == NULL)return 0;
+		}
+
+		else {
+			Rbtree_node* x = temp;
+			if (temp->right != NULL) {
+
+
+				temp = temp->right;
+				
+
+			}  if (temp->right == NULL)return 0;
+		}
+	}
+	return 1;
+
+}
+
+
+
+
+
+
+
 
 void Rbtree::left_rotate(Rbtree_node*& root, Rbtree_node* p)
 {
