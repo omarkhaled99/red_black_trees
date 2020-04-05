@@ -15,20 +15,19 @@ int main()
 	while (file.getline(temp, 50)) {
 		tree.insert(temp);
 	}
-
-//	tree.printtree();
-	cout <<"The tree height is:\t"<< tree.height() << endl;
+    cout <<"The tree height is:\t"<< tree.height() << endl;
 	cout << "The number of elements in the dictionary is:\t"<<tree.size() << endl;
 	while (true)
 	{
 		cout << "PLEASE ENTER A NUMBER" << endl;
 		cout << "1. insert a word				2. search for a word" << endl;
-		int choice;
-		cin >> choice;
-		if(choice==1){
+		char choice[10];
+	
+		cin.getline(choice,10, '\n');
+		if(!strcmp(choice,"1")){
 			cout << "Please enter the word : \n";
 			char word[50];
-			cin >> word;
+			cin.getline(word, 50,'\n');
 			int y = tree.findElement(word);
 			if (y == 0)
 			{
@@ -36,6 +35,14 @@ int main()
 				cout << "insertion done !" << endl;
 				cout << "The tree height after insertion is:\t" << tree.height() << endl;
 				cout << "The number of elements in the dictionary is:\t" << tree.size() << endl;
+				ofstream myfile("dictionary.txt", ofstream::app);
+				if (myfile.is_open())
+				{
+					myfile << "\n";
+					myfile << word;
+
+					myfile.close();
+				}
 			}
 			else{
 				cout << "The word already exists!" << endl;
@@ -44,10 +51,10 @@ int main()
 
 		
 		}
-		else if (choice == 2) {
+		else if (!strcmp(choice, "2")) {
 			cout << "Please enter the word : \n";
 			char word[50];
-			cin >> word;
+			cin.getline(word, 50,'\n');
 			int x = tree.findElement(word);
 			if (x == 1)cout << "WORD FOUND\n";
 			else
