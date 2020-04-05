@@ -21,9 +21,9 @@ int main()
 	{
 		cout << "PLEASE ENTER A NUMBER" << endl;
 		cout << "1. insert a word				2. search for a word" << endl;
-		char choice[10];
+		char choice[20];
 	
-		cin.getline(choice,10, '\n');
+		cin.getline(choice,20, '\n');
 		if(!strcmp(choice,"1")){
 			cout << "Please enter the word : \n";
 			char word[50];
@@ -60,7 +60,7 @@ int main()
 			else
 				cout << "WORD NOT FOUND\n";
 		}
-		}
+	}
 	
 
 	
