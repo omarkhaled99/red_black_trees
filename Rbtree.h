@@ -20,17 +20,18 @@ typedef struct node {
 class Rbtree
 {
 public:
-	int MAX(int a, int b);
 	Rbtree();
 	~Rbtree();
 	int height();
 	int findElement(char* str);
-void insert(char d[50]);
+    void insert(char d[50]);
 	void printtree();
 	int size();
+	bool is_repeated_insertion();
+	void set_repeated_insertion();
 private:
 	Rbtree_node *root = NULL;
-
+	bool repeated_insertion = false;
 	void printtree(Rbtree_node* root);
 	int size(Rbtree_node*root);
 	Rbtree_node* insert(Rbtree_node* root, Rbtree_node* pt);

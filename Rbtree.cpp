@@ -23,7 +23,7 @@ int Rbtree::findElement (char* str) {
 
 	temp = root;
 	while (temp) {
-		if ((res = strcmp(temp->word, str)) == 0) {
+		if ((res = strcasecmp(temp->word, str)) == 0) {
 
 			break;
 
@@ -183,6 +183,9 @@ Rbtree_node* Rbtree::insert(Rbtree_node* root, Rbtree_node* pt)
 		root->right = insert(root->right, pt);
 		root->right->parent = root;
 	}
+	//else {
+		//repeated_insertion = true;
+//	}
 
 	return root;
 }
@@ -200,6 +203,14 @@ int Rbtree::size()
 {
 	
 	return size(root);
+}
+
+bool Rbtree::is_repeated_insertion()
+{
+	return repeated_insertion;
+}
+void Rbtree::set_repeated_insertion() {
+	repeated_insertion = false;
 }
 
 

@@ -16,19 +16,41 @@ int main()
 		tree.insert(temp);
 	}
 
-	tree.printtree();
-	cout << tree.height() << endl;
-	cout << tree.size() << endl;
+//	tree.printtree();
+	cout <<"The tree height is:\t"<< tree.height() << endl;
+	cout << "The number of elements in the dictionary is:\t"<<tree.size() << endl;
 	while (true)
 	{
-		cout << "Please enter the word : \n";
-		char word[20];
-		cin >> word; // 
-		int x = tree.findElement(word);
-		if (x == 1)cout << "WORD FOUND\n";
-		else
-			cout << "WORD NOT FOUND\n";
-	}
+		cout << "PLEASE ENTER A NUMBER" << endl;
+		cout << "1. insert a word				2. search for a word" << endl;
+		int choice;
+		cin >> choice;
+		if(choice==1){
+			cout << "Please enter the word : \n";
+			char word[50];
+			cin >> word;
+			tree.insert(word);
+		//	if (tree.is_repeated_insertion()) {
+			//	cout << "The word already exists!" << endl;
+				//tree.set_repeated_insertion();
+			//}
+			//else {
+				cout << "insertion done !"<<endl;
+				cout << "The tree height after insertion is:\t" << tree.height() << endl;
+				cout << "The number of elements in the dictionary is:\t" << tree.size() << endl;
+
+			//}
+		}
+		else if (choice == 2) {
+			cout << "Please enter the word : \n";
+			char word[50];
+			cin >> word;
+			int x = tree.findElement(word);
+			if (x == 1)cout << "WORD FOUND\n";
+			else
+				cout << "WORD NOT FOUND\n";
+		}
+		}
 	
 
 	
