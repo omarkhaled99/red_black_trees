@@ -29,17 +29,20 @@ int main()
 			cout << "Please enter the word : \n";
 			char word[50];
 			cin >> word;
-			tree.insert(word);
-		//	if (tree.is_repeated_insertion()) {
-			//	cout << "The word already exists!" << endl;
-				//tree.set_repeated_insertion();
-			//}
-			//else {
-				cout << "insertion done !"<<endl;
+			int y = tree.findElement(word);
+			if (y == 0)
+			{
+				tree.insert(word);
+				cout << "insertion done !" << endl;
 				cout << "The tree height after insertion is:\t" << tree.height() << endl;
 				cout << "The number of elements in the dictionary is:\t" << tree.size() << endl;
+			}
+			else{
+				cout << "The word already exists!" << endl;
+			
+			}
 
-			//}
+		
 		}
 		else if (choice == 2) {
 			cout << "Please enter the word : \n";
